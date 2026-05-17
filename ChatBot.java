@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class ChatBot {
 
@@ -6,32 +6,30 @@ public class ChatBot {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Customer Support ChatBot");
-        System.out.println("Ask your question:");
+        System.out.println("Simple ChatBot");
+        System.out.println("Type bye to exit");
 
-        // User input
-        String question = sc.nextLine().toLowerCase();
+        while (true) {
 
-        // Chatbot response
-        if (question.contains("hello") || question.contains("hi")) {
+            System.out.print("You: ");
+            String msg = sc.nextLine();
 
-            System.out.println("Bot: Hello Customer!");
+            if (msg.equalsIgnoreCase("hello")) {
+                System.out.println("Bot: Hello User");
+            }
 
-        } else if (question.contains("price")) {
+            else if (msg.equalsIgnoreCase("price")) {
+                System.out.println("Bot: Price is Rs.500");
+            }
 
-            System.out.println("Bot: Product price is Rs.500");
+            else if (msg.equalsIgnoreCase("bye")) {
+                System.out.println("Bot: Thank You");
+                break;
+            }
 
-        } else if (question.contains("delivery")) {
-
-            System.out.println("Bot: Delivery takes 3 days");
-
-        } else if (question.contains("payment")) {
-
-            System.out.println("Bot: Payment can be done using UPI or Card");
-
-        } else {
-
-            System.out.println("Bot: Sorry, I don't understand");
+            else {
+                System.out.println("Bot: I don't understand");
+            }
         }
 
         sc.close();

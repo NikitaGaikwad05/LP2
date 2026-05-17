@@ -1,45 +1,44 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class SelectionSort {
+public class SelectionSortGreedy {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        // Input size of array
+        // Accept number of elements
         System.out.print("Enter number of elements: ");
         int n = sc.nextInt();
 
         int arr[] = new int[n];
 
-        // Input array elements
+        // Accept array elements
         System.out.println("Enter elements:");
 
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        // Selection Sort
+        // Selection Sort (Greedy Approach)
         for (int i = 0; i < n - 1; i++) {
 
-            int minIndex = i;
+            int min = i;
 
-            // Find smallest element
+            // Find minimum element
             for (int j = i + 1; j < n; j++) {
-
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+                if (arr[j] < arr[min]) {
+                    min = j;
                 }
             }
 
             // Swap elements
             int temp = arr[i];
-            arr[i] = arr[minIndex];
-            arr[minIndex] = temp;
+            arr[i] = arr[min];
+            arr[min] = temp;
         }
 
-        // Print sorted array
-        System.out.println("Sorted Array:");
+        // Display sorted array
+        System.out.println("Sorted array:");
 
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i] + " ");
